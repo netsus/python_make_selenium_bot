@@ -1,4 +1,14 @@
 from selenium import webdriver
-from webdriver_manager.chrome import ChromeDriverManager
+from selenium.webdriver.chrome.options import Options
 
-browser = webdriver.Chrome()
+chrome_options = Options()
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-dev-shm-usage")
+d = webdriver.Chrome(
+    "/home/cwjcsk/seleniumpro/chromedriver", chrome_options=chrome_options
+)
+
+
+# d = webdriver.Chrome("/home/cwjcsk/seleniumpro/chromedriver")
+d.get("https://www.google.com/")
